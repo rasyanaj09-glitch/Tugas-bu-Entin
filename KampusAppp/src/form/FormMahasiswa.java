@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-public class FormMatkul extends javax.swing.JDialog {
+public class FormMahasiswa extends javax.swing.JDialog {
 
     private Connection conDB;
     private PreparedStatement ps;
@@ -25,7 +25,7 @@ public class FormMatkul extends javax.swing.JDialog {
 
    
 
-    public FormMatkul(java.awt.Frame parent, boolean modal) {
+    public FormMahasiswa(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         conDB = KelasKoneksi.konDB(); // KONEKSI DB
@@ -367,7 +367,7 @@ getcode();
     }//GEN-LAST:event_txtnimActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+System.exit(0);     // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDActionPerformed
@@ -388,13 +388,21 @@ updateData();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+clearData();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 public void clearData(){
     txtnim.setText("");
     txtnama.setText("");
-    txttempatlahir.setText(""); 
-    
+    txttempatlahir.setText("");
+
+    // Combo gender reset ke index pertama
+    cbgender.setSelectedIndex(0);
+
+    // Date chooser dikosongkan
+    date.setDate(null);
+
+    txtno.setText("");
+    txtalamat.setText("");
 }
 
 public void getcode() {
@@ -567,20 +575,21 @@ public void updateData() {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormMatkul.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormMatkul.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormMatkul.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormMatkul.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FormMatkul dialog = new FormMatkul(new javax.swing.JFrame(), true);
+                FormMahasiswa dialog = new FormMahasiswa(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
